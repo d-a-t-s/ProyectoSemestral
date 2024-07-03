@@ -1,6 +1,6 @@
 package Logica.Autobuses;
 
-import Logica.AsientoNormal;
+import Logica.Asiento;
 import Logica.HoraSalida;
 
 import java.time.LocalTime;
@@ -15,8 +15,7 @@ public class SkibidiTravel extends Autobus{
         asientosPrimerPiso = new ArrayList<>();
         asientosSegundoPiso = null;
         for(int i = 0; i < 16; i++){
-            asientosPrimerPiso.add(new AsientoNormal(i+1));
-        }
+            asientosPrimerPiso.add(new Asiento(i + 1, false));        }
     }
     //Metodos
     @Override

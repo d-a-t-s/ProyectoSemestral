@@ -2,52 +2,43 @@ package Logica;
 
 import Logica.Autobuses.Autobus;
 import Logica.Autobuses.PapuBuses;
-import Logica.Decorators.MewingMetropolisDecorator;
 import Logica.Decorators.PapusVilleDecorator;
-import Logica.Decorators.TilinTownDecorator;
 import Logica.Excepciones.AsientoNoDisponibleException;
 import Logica.Excepciones.SegundoPisoNoDisponibleException;
 
-public class Main{
-    public static void main(String[] args){
-        Autobus p = new PapuBuses(HoraSalida.MORNING);
-//        System.out.println(p.getHoraSalida());
-        System.out.println(p.numeroAsientosDisponiblesPrimerPiso());
-        System.out.println(p.numeroAsientosDisponiblesSegundoPiso());
-        try{
-            p.reservarAsientoPrimerPiso(1);
-            System.out.println(p.getAsientosPrimerPiso().get(0).getDisponibilidad());
-            p.reservarAsientoSegundoPiso(32);
-            System.out.println(p.getAsientosSegundoPiso().get(15).getNumeroDeAsiento());
-            System.out.println(p.getAsientosSegundoPiso().get(15).getDisponibilidad());
-            p = new PapusVilleDecorator(p);
-            System.out.println(p.numeroAsientosDisponiblesPrimerPiso());
-            System.out.println(p.numeroAsientosDisponiblesSegundoPiso());
-            System.out.println(p.getCompany());
-//            System.out.println(p.getPrecioAsientoNormal());
-//            System.out.println(p.getPrecioAsientoVIP());
-//            p = new TilinTownDecorator(p);
-//            System.out.println(p.getPrecioAsientoNormal());
-//            System.out.println(p.getPrecioAsientoVIP());
-//            p.reservarAsientoPrimerPiso(1);
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Crear un autobús PapuBuses que sale por la mañana
+            Autobus autobus = new PapuBuses(HoraSalida.MORNING);
 
-        }catch(AsientoNoDisponibleException e){
-            System.out.println("Asiento no disponible");
-        }catch(SegundoPisoNoDisponibleException e){
-            System.out.println("Segundo piso no disponible");
+            // Mostrar número de asientos disponibles en el primer y segundo piso
+            System.out.println("Asientos disponibles en el primer piso: " + autobus.numeroAsientosDisponiblesPrimerPiso());
+            System.out.println("Asientos disponibles en el segundo piso: " + autobus.numeroAsientosDisponiblesSegundoPiso());
+
+            // Reservar el primer asiento del primer piso y mostrar su disponibilidad
+            autobus.reservarAsientoPrimerPiso(1);
+            System.out.println("Disponibilidad del primer asiento del primer piso: " + autobus.getAsientosPrimerPiso().get(0).getDisponibilidad());
+
+            // Intentar reservar el asiento 32 del segundo piso y mostrar su número y disponibilidad
+            autobus.reservarAsientoSegundoPiso(32);
+            System.out.println("Número del asiento reservado en el segundo piso: " + autobus.getAsientosSegundoPiso().get(15).getNumeroDeAsiento());
+            System.out.println("Disponibilidad del asiento reservado en el segundo piso: " + autobus.getAsientosSegundoPiso().get(15).getDisponibilidad());
+
+            // Decorar el autobús con PapusVilleDecorator y mostrar información actualizada
+            autobus = new PapusVilleDecorator(autobus);
+            System.out.println("Asientos disponibles en el primer piso después de decorar: " + autobus.numeroAsientosDisponiblesPrimerPiso());
+            System.out.println("Asientos disponibles en el segundo piso después de decorar: " + autobus.numeroAsientosDisponiblesSegundoPiso());
+            System.out.println("Compañía del autobús después de decorar: " + autobus.getCompany());
+
+            // Mostrar precios de asientos normal y VIP después de decorar con PapusVilleDecorator
+            System.out.println("Precio del asiento normal después de decorar: " + autobus.getPrecioAsientoNormal());
+            System.out.println("Precio del asiento VIP después de decorar: " + autobus.getPrecioAsientoVIP());
+
+        } catch (AsientoNoDisponibleException e) {
+            System.out.println("Error: Asiento no disponible");
+        } catch (SegundoPisoNoDisponibleException e) {
+            System.out.println("Error: Segundo piso no disponible");
         }
-//        System.out.println(p.precioAsientoNormal());
-//        System.out.println(p.precioAsientoVIP());
-//        for(int i = 0 ; i < 16; i++){
-//            System.out.println("Asientos del primer piso");
-//            System.out.println(p.getAsientosPrimerPiso().get(i).getNumeroDeAsiento());
-//            System.out.println("Asientos del segundo piso");
-//            System.out.println(p.getAsientosSegundoPiso().get(i).getNumeroDeAsiento());
-//        }
-//        p = new PapusVilleDecorator(p);
-//        System.out.println(p.getHoraLlegada());
-//        p = new MewingMetropolisDecorator(p);
-//        System.out.println(p.getHoraLlegada());
-
     }
 }

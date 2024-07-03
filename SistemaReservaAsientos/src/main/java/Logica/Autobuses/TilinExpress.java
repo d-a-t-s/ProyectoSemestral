@@ -1,7 +1,6 @@
 package Logica.Autobuses;
 
-import Logica.AsientoNormal;
-import Logica.AsientoVIP;
+import Logica.Asiento;
 import Logica.HoraSalida;
 
 import java.time.LocalTime;
@@ -16,8 +15,8 @@ public class TilinExpress extends Autobus{
         asientosPrimerPiso = new ArrayList<>();
         asientosSegundoPiso = new ArrayList<>();
         for(int i = 0; i < 16; i++){
-            asientosPrimerPiso.add(new AsientoNormal(i+1));
-            asientosSegundoPiso.add(new AsientoVIP(i+17));
+            asientosPrimerPiso.add(new Asiento(i + 1, true)); // Asientos VIP en el primer piso
+            asientosSegundoPiso.add(new Asiento(i + 17, false)); // Asientos normales en el segundo piso
         }
     }
     //Metodos

@@ -2,30 +2,53 @@ package Logica;
 
 import Logica.Excepciones.AsientoNoDisponibleException;
 
-public abstract class Asiento {
-    //Propiedades
-    protected Boolean Disponibilidad = true;
-    protected int numeroDeAsiento;
-    //Constructor
+public class Asiento {
+    // Propiedades
+    private Boolean disponibilidad;
+    private int numeroDeAsiento;
+    private boolean esVIP;
 
-    //Metodos
-    public void reservar() throws AsientoNoDisponibleException{
-        if(Disponibilidad == false){
-            throw new AsientoNoDisponibleException("AsientoNoDisponibleException");
+    // Constructor
+    public Asiento(int numeroDeAsiento, boolean esVIP) {
+        this.numeroDeAsiento = numeroDeAsiento;
+        this.disponibilidad = true; // Por defecto, el asiento está disponible
+        this.esVIP = esVIP;
+    }
+
+    // Métodos
+    public void reservar() throws AsientoNoDisponibleException {
+        if (!disponibilidad) {
+            throw new AsientoNoDisponibleException("Asiento no disponible.");
         }
-        Disponibilidad = false;
+        disponibilidad = false;
     }
-    //Getters y setters
-    public Boolean getDisponibilidad(){
-        return Disponibilidad;
+
+    public void cancelarReserva() {
+        disponibilidad = true;
     }
-    public int getNumeroDeAsiento(){
+
+    // Getters y setters
+    public Boolean getDisponibilidad() {
+        return disponibilidad;
+    }
+
+    public int getNumeroDeAsiento() {
         return numeroDeAsiento;
     }
-    public void setDisponibilidad(Boolean valor){
-        Disponibilidad = valor; //Considerar provisorio por si se agrega una opcion para cancelar en un futuro
+
+    public void setDisponibilidad(Boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
-    public void setNumeroDeAsiento(int num){
-        numeroDeAsiento = num;
+
+    public void setNumeroDeAsiento(int numeroDeAsiento) {
+        this.numeroDeAsiento = numeroDeAsiento;
+    }
+
+    public boolean esVIP() {
+        return esVIP;
+    }
+
+    public void setVIP(boolean esVIP) {
+        this.esVIP = esVIP;
     }
 }
