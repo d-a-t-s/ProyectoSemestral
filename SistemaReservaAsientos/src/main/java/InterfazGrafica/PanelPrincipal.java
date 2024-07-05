@@ -1,6 +1,9 @@
 package InterfazGrafica;
 
-import InterfazGrafica.Asientos.*;
+import InterfazGrafica.Asientos.CambioPisos;
+import InterfazGrafica.Asientos.PanelAsiento;
+import InterfazGrafica.Asientos.PanelPiso1;
+import InterfazGrafica.Asientos.PanelPiso2;
 
 import Logica.Autobuses.*;
 import Logica.Decorators.*;
@@ -31,22 +34,15 @@ public class PanelPrincipal extends JPanel {
     private PanelInformacion panelInformacion;
     private ArrayList<PanelAutobus> panelesAutobuseslist;
 
+    private ArrayList<Autobus> listaAutobuses; // Lista de autobuses
+
     // Constructor
     public PanelPrincipal() {
         super();
 
-        //Instanciamos un bus de cada uno
-        Autobus bus1 = new PapuBuses(HoraSalida.MORNING);
-        Autobus bus2 = new TilinExpress(HoraSalida.AFTERNOON);
-        Autobus bus3 = new SigmaService(HoraSalida.EVENING);
-        Autobus bus4 = new SkibidiTravel(HoraSalida.NIGHT);
-        Autobus bus5 = new MewingMobility(HoraSalida.NIGHT);
-        //Les asignamos un destino a cada bus
-        bus1 = new PapusVilleDecorator(bus1);
-        bus2 = new TilinTownDecorator(bus2);
-        bus3 = new SigmaCityDecorator(bus3);
-        bus4 = new SkibidiSpringsDecorator(bus4);
-        bus5 = new MewingMetropolisDecorator(bus5);
+        // Inicializar la lista de autobuses
+        listaAutobuses = new ArrayList<>();
+        inicializarListaAutobuses();
 
         // Configuración del tamaño del panel según la imagen de fondo
         Dimension size = new Dimension(imagenInterfaz.getWidth(null), imagenInterfaz.getHeight(null));
@@ -65,11 +61,11 @@ public class PanelPrincipal extends JPanel {
 
         // Inicialización de los asientos del primer piso
         asientosPiso1 = new ArrayList<>();
-        CreacionAsientos.inicializarAsientos(asientosPiso1, 1, this);
+        inicializarAsientos(asientosPiso1, 1);
 
         // Inicialización de los asientos del segundo piso
         asientosPiso2 = new ArrayList<>();
-        CreacionAsientos.inicializarAsientos(asientosPiso2, 2, this);
+        inicializarAsientos(asientosPiso2, 2);
 
         // Inicialización de la lista de asientos seleccionados
         asientosSeleccionados = new ArrayList<>();
@@ -77,24 +73,71 @@ public class PanelPrincipal extends JPanel {
         // Inicialización de la clase CambioPisos para gestionar el cambio de piso
         cambioPisos = new CambioPisos(asientosPiso1, asientosPiso2);
 
-        //Agregamos los paneles para reservar y para ingresar
+        // Agregamos los paneles para reservar y para ingresar
         panelReservar = new PanelReservar();
         this.add(panelReservar);
         panelIngresar = new PanelIngresar();
         this.add(panelIngresar);
-        //Agregamos el panel de informacion
+        // Agregamos el panel de informacion
         panelInformacion = new PanelInformacion();
         this.add(panelInformacion);
 
-        //Agregamos los paneles con los que se seleccionaran los autobuses
+        // Agregamos los paneles con los que se seleccionaran los autobuses
         panelesAutobuseslist = new ArrayList<>();
-        for(int i = 0; i < 13; i++){
+        for (int i = 0; i < 13; i++) {
             panelesAutobuseslist.add(new PanelAutobus());
-            panelesAutobuseslist.get(i).setBounds(6,57 + i*51,654,45);
+            panelesAutobuseslist.get(i).setBounds(6, 57 + i * 51, 654, 45);
             this.add(panelesAutobuseslist.get(i));
         }
 
+        // Mostrar la información de los autobuses en los paneles
+        mostrarInformacionAutobuses();
+    }
 
+    // Método para inicializar la lista de autobuses
+    private void inicializarListaAutobuses() {
+        Autobus bus1 = new PapuBuses(HoraSalida.MORNING);
+        Autobus bus2 = new TilinExpress(HoraSalida.AFTERNOON);
+        Autobus bus3 = new SigmaService(HoraSalida.EVENING);
+        Autobus bus4 = new SkibidiTravel(HoraSalida.NIGHT);
+        Autobus bus5 = new MewingMobility(HoraSalida.NIGHT);
+        // Les asignamos un destino a cada bus
+        bus1 = new PapusVilleDecorator(bus1);
+        bus2 = new TilinTownDecorator(bus2);
+        bus3 = new SigmaCityDecorator(bus3);
+        bus4 = new SkibidiSpringsDecorator(bus4);
+        bus5 = new MewingMetropolisDecorator(bus5);
+
+        listaAutobuses.add(bus1);
+        listaAutobuses.add(bus2);
+        listaAutobuses.add(bus3);
+        listaAutobuses.add(bus4);
+        listaAutobuses.add(bus5);
+
+        // Añadir más autobuses si es necesario
+        // ...
+    }
+
+    // Método para inicializar los asientos en un piso dado
+    private void inicializarAsientos(ArrayList<PanelAsiento> listaAsientos, int numeroPiso) {
+        int aux = 0;
+        // Creación de los asientos en filas y columnas
+        for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < 4; i++) {
+                // Creación del panel de asiento en la posición especificada
+                PanelAsiento asiento = new PanelAsiento(numeroPiso, i, j);
+                // Ajuste de la posición en el panel principal según la columna
+                if (i == 2 || i == 3) {
+                    asiento.setBounds(697 + i * 67 + 20, 101 + j * 97, 45, 75);
+                } else {
+                    asiento.setBounds(697 + i * 67, 101 + j * 97, 45, 75);
+                }
+                // Agregar el panel de asiento al panel principal y a la lista de asientos
+                this.add(asiento);
+                listaAsientos.add(asiento);
+            }
+            aux = aux + 4;
+        }
     }
 
     // Método para cambiar de piso utilizando la clase CambioPisos
@@ -107,5 +150,20 @@ public class PanelPrincipal extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imagenInterfaz, 0, 0, null); // Dibuja la imagen de fondo en el panel
+    }
+
+    // Método para mostrar la información de los autobuses en los paneles
+    private void mostrarInformacionAutobuses() {
+        for (int i = 0; i < listaAutobuses.size() && i < panelesAutobuseslist.size(); i++) {
+            Autobus autobus = listaAutobuses.get(i);
+            PanelAutobus panelAutobus = panelesAutobuseslist.get(i);
+
+            panelAutobus.setAgencia(autobus.getCompany());
+            panelAutobus.setHoraSalida(autobus.getHoraSalida().toString());
+            panelAutobus.setHoraLlegada(autobus.getHoraLlegada().toString());
+            //panelAutobus.setDestino(autobus.getDestino());
+            //panelAutobus.setNumeroPisos(autobus.getNumeroPisos());
+            //panelAutobus.setCantidadAsientos(autobus.getCantidadAsientos());
+        }
     }
 }

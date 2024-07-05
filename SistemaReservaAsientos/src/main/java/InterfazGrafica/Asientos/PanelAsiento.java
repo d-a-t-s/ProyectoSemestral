@@ -25,7 +25,7 @@ public class PanelAsiento extends JButton implements ActionListener {
         labelNumero.setForeground(Color.BLACK); // Color del texto
         labelNumero.setHorizontalAlignment(SwingConstants.CENTER); // Centrar el texto
         labelNumero.setBounds(0, 0, getWidth(), getHeight()); // Ajustar al tamaño del botón
-        labelNumero.setFont(new Font("Arial", Font.BOLD, 10)); // Cambiar tamaño de fuente
+        labelNumero.setFont(new Font("Arial", Font.BOLD, 9)); // Cambiar tamaño de fuente
         add(labelNumero); // Agregar el label al botón
 
         addActionListener(this); // Agregar listener de acción
