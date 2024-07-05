@@ -7,10 +7,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class TilinExpress extends Autobus{
-    //Propiedades
-    private final String company = "Tilin Express";
     //Constructor
     public TilinExpress(HoraSalida horaSalida){
+        this.company = "Tilin Express";
         this.horaSalida = horaSalida.getTiempo();
         asientosPrimerPiso = new ArrayList<>();
         asientosSegundoPiso = new ArrayList<>();

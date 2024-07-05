@@ -7,10 +7,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class MewingMobility extends Autobus{
-    //Propiedades
-    private final String company = "Mewing Mobility";
     //Constructor
     public MewingMobility(HoraSalida horaSalida){
+        this.company = "Mewing Mobility";
         this.horaSalida = horaSalida.getTiempo();
         asientosPrimerPiso = new ArrayList<>();
         asientosSegundoPiso = null;

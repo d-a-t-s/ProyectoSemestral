@@ -4,6 +4,7 @@ import InterfazGrafica.Asientos.CambioPisos;
 import InterfazGrafica.Asientos.PanelAsiento;
 import InterfazGrafica.Asientos.PanelPiso1;
 import InterfazGrafica.Asientos.PanelPiso2;
+import InterfazGrafica.Asientos.*;
 
 import Logica.Autobuses.*;
 import Logica.Decorators.*;
@@ -61,11 +62,11 @@ public class PanelPrincipal extends JPanel {
 
         // Inicialización de los asientos del primer piso
         asientosPiso1 = new ArrayList<>();
-        inicializarAsientos(asientosPiso1, 1);
+        CreacionAsientos.inicializarAsientos(asientosPiso1, 1, this);
 
         // Inicialización de los asientos del segundo piso
         asientosPiso2 = new ArrayList<>();
-        inicializarAsientos(asientosPiso2, 2);
+        CreacionAsientos.inicializarAsientos(asientosPiso2, 2, this);
 
         // Inicialización de la lista de asientos seleccionados
         asientosSeleccionados = new ArrayList<>();
@@ -116,28 +117,6 @@ public class PanelPrincipal extends JPanel {
 
         // Añadir más autobuses si es necesario
         // ...
-    }
-
-    // Método para inicializar los asientos en un piso dado
-    private void inicializarAsientos(ArrayList<PanelAsiento> listaAsientos, int numeroPiso) {
-        int aux = 0;
-        // Creación de los asientos en filas y columnas
-        for (int j = 0; j < 4; j++) {
-            for (int i = 0; i < 4; i++) {
-                // Creación del panel de asiento en la posición especificada
-                PanelAsiento asiento = new PanelAsiento(numeroPiso, i, j);
-                // Ajuste de la posición en el panel principal según la columna
-                if (i == 2 || i == 3) {
-                    asiento.setBounds(697 + i * 67 + 20, 101 + j * 97, 45, 75);
-                } else {
-                    asiento.setBounds(697 + i * 67, 101 + j * 97, 45, 75);
-                }
-                // Agregar el panel de asiento al panel principal y a la lista de asientos
-                this.add(asiento);
-                listaAsientos.add(asiento);
-            }
-            aux = aux + 4;
-        }
     }
 
     // Método para cambiar de piso utilizando la clase CambioPisos

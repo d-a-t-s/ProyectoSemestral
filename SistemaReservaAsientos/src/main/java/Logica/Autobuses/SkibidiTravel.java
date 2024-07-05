@@ -7,10 +7,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class SkibidiTravel extends Autobus{
-    //Propiedades
-    private final String company = "Skibidi Travel";
     //Constructor
     public SkibidiTravel(HoraSalida horaSalida){
+        this.company = "Skibidi Travel";
         this.horaSalida = horaSalida.getTiempo();
         asientosPrimerPiso = new ArrayList<>();
         asientosSegundoPiso = null;
