@@ -5,11 +5,11 @@ import Logica.Autobuses.Autobus;
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelesAutobuses extends JPanel{
+public class PanelAutobus extends JPanel{
     //Propiedades
     private Autobus bus;
     //Constructor
-    public PanelesAutobuses(){
+    public PanelAutobus(){
         super();
         setBackground(Color.GREEN);
 
