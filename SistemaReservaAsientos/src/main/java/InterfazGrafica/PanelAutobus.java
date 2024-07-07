@@ -8,9 +8,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PanelAutobus extends JPanel{
+public class PanelAutobus extends JPanel implements PanelSeleccionable{
     //Propiedades
     private Autobus bus;
+    private boolean isSelected = false;
     //Constructor
     public PanelAutobus(Autobus bus){
         super();
@@ -31,9 +32,14 @@ public class PanelAutobus extends JPanel{
                         PanelPrincipal.getAsientoPiso2List().get(i).repaint();
                     }
                     PanelPrincipal.getAsientoPiso1List().get(i).repaint();
-
                 }
 //                Ventana.getPanelPrincipal().repaint();
+                if (isSelected) {
+                    GestorSeleccion.deseleccionarTodos();
+                } else {
+                    GestorSeleccion.seleccionarPanel(PanelAutobus.this);
+
+                }
             }
         });
     }
@@ -41,6 +47,14 @@ public class PanelAutobus extends JPanel{
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+
+        if (isSelected) {
+            // Color semi-transparente para el fondo seleccionado
+            Color semiTransparentBlack = new Color(0, 0, 0, 64);
+            g.setColor(semiTransparentBlack);
+            g.fillRect(0, 0, getWidth(), getHeight());
+        }
+
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 16));
         g.drawString(bus.getCompany(), 3, 28);
@@ -57,5 +71,17 @@ public class PanelAutobus extends JPanel{
             g.drawString("Piso 1: " + Integer.toString(aux), 550, 20);
             g.drawString("Piso 2: " + Integer.toString(aux1), 550, 38);
         }
+    }
+
+    // Implementación de métodos de PanelSeleccionable
+    @Override
+    public void setSeleccionado(boolean seleccionado) {
+        isSelected = seleccionado;
+        repaint();
+    }
+
+    @Override
+    public boolean isSelected() {
+        return isSelected;
     }
 }
