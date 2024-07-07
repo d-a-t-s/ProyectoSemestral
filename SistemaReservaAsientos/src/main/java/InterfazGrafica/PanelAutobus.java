@@ -28,9 +28,10 @@ public class PanelAutobus extends JPanel{
                         PanelPrincipal.getAsientoPiso2List().get(i).setAsiento(null);
                     }else{
                         PanelPrincipal.getAsientoPiso2List().get(i).setAsiento(bus.getAsientosSegundoPiso().get(i));
+                        PanelPrincipal.getAsientoPiso2List().get(i).repaint();
                     }
                     PanelPrincipal.getAsientoPiso1List().get(i).repaint();
-                    PanelPrincipal.getAsientoPiso2List().get(i).repaint();
+
                 }
 //                Ventana.getPanelPrincipal().repaint();
             }

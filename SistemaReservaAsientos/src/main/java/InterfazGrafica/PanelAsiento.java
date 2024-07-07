@@ -50,24 +50,7 @@ public class PanelAsiento extends JPanel{
     @Override
     public void paintComponent(Graphics g){ //ESTE METODO DEBE TENERSE EN CUENTA Y PROBARSE LUEGO PUES DADO QUE TODOS LOS ASIENTOS ESTAN DISPONIBLES NO SE PUEDE SABER SI REALMENTE FUNCIONA CORRECTAMENTE
         super.paintComponent(g);
-        for(int i = 0; i < 16; i++){
-            if(PanelPrincipal.getNumeroPiso() == 0){
 
-                PanelPrincipal.getAsientoPiso2List().get(i).setOpaque(false);
-                PanelPrincipal.getAsientoPiso1List().get(i).setOpaque(false);
-
-            }else if(PanelPrincipal.getNumeroPiso() == 1){
-
-                PanelPrincipal.getAsientoPiso2List().get(i).setOpaque(false);
-                PanelPrincipal.getAsientoPiso1List().get(i).setOpaque(true);
-
-            }else if(PanelPrincipal.getNumeroPiso() == 2){
-
-                PanelPrincipal.getAsientoPiso2List().get(i).setOpaque(true);
-                PanelPrincipal.getAsientoPiso1List().get(i).setOpaque(false);
-
-            }
-        }
         if(asiento == null){
             color = Color.LIGHT_GRAY;
         }else if(asiento.getDisponibilidad() == true){

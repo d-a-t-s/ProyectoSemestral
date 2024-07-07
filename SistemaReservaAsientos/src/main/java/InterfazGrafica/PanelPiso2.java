@@ -20,7 +20,6 @@ public class PanelPiso2 extends JPanel{
             public void mousePressed(MouseEvent e) {
                 PanelPrincipal.setNumeroPiso(2);
                 for(int i = 0; i < 16; i++){
-                    PanelPrincipal.getAsientoPiso1List().get(i).repaint();
                     PanelPrincipal.getAsientoPiso2List().get(i).repaint();
                 }
             }

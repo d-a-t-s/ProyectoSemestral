@@ -21,7 +21,6 @@ public class PanelPiso1 extends JPanel{
                 PanelPrincipal.setNumeroPiso(1);
                 for(int i = 0; i < 16; i++){
                     PanelPrincipal.getAsientoPiso1List().get(i).repaint();
-                    PanelPrincipal.getAsientoPiso2List().get(i).repaint();
                 }
             }
         });
