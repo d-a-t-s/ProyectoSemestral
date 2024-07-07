@@ -33,11 +33,20 @@ public abstract class Autobus{
     public void reservarAsientoPrimerPiso(int numeroDeAsiento) throws AsientoNoDisponibleException{
         asientosPrimerPiso.get(numeroDeAsiento - 1).reservar();
     }
-    public void reservarAsientoSegundoPiso(int numeroDeAsiento) throws AsientoNoDisponibleException, SegundoPisoNoDisponibleException{
-        if(asientosSegundoPiso == null){
-            throw new SegundoPisoNoDisponibleException("SegundoPisoNoDisponibleException");
+    public void reservarAsientoSegundoPiso(int numeroDeAsiento) throws AsientoNoDisponibleException, SegundoPisoNoDisponibleException {
+        if (asientosSegundoPiso == null || asientosSegundoPiso.isEmpty()) {
+            throw new SegundoPisoNoDisponibleException("Segundo piso no disponible");
         }
-        asientosSegundoPiso.get(numeroDeAsiento - 17).reservar();
+
+        // Ajustamos el número de asiento al índice del ArrayList (considerando que los asientos van de 1 a 16)
+        int indiceAsiento = numeroDeAsiento - 1;
+
+        // Verificamos que el índice esté dentro del rango válido
+        if (indiceAsiento < 0 || indiceAsiento >= asientosSegundoPiso.size()) {
+            throw new AsientoNoDisponibleException("Asiento no disponible");
+        }
+
+        asientosSegundoPiso.get(indiceAsiento).reservar();
     }
     public int numeroAsientosDisponiblesPrimerPiso(){
         int aux = 0;
