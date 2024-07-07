@@ -45,6 +45,7 @@ public class PanelPrincipal extends JPanel{
         bus4 = new SkibidiSpringsDecorator(bus4);
         bus5 = new MewingMetropolisDecorator(bus5);
 
+        autobusSeleccionado = bus1;
         //Agregamos los buses a la lista
         autobusList.add(bus1);
         autobusList.add(bus2);

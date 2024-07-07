@@ -12,20 +12,38 @@ public class PanelAsiento extends JPanel{
     //Propiedades
     private static Color color;
     private Asiento asiento;
-    private ArrayList<PanelAsiento> asientosSeleccionados;
+    private static ArrayList<Asiento> asientosSeleccionados;
     //Constructor
     public PanelAsiento() {
         super();
+        asientosSeleccionados = new ArrayList<>();
 
 
 
-
-//        this.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//
-//            }
-//        });
+        this.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mousePressed(MouseEvent e){
+                if(PanelPrincipal.getNumeroPiso() == 1){
+                    for(int i = 0; i < 16; i++){
+                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(false);
+                    }
+                }else if(PanelPrincipal.getNumeroPiso() == 2){
+                    for(int i = 0; i < 16; i++){
+                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(false);
+                    }
+                }
+                asientosSeleccionados.add(asiento);
+                if(PanelPrincipal.getNumeroPiso() == 1){
+                    for(int i = 0; i < 16; i++){
+                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(true);
+                    }
+                }else if(PanelPrincipal.getNumeroPiso() == 2){
+                    for(int i = 0; i < 16; i++){
+                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(true);
+                    }
+                }
+            }
+        });
     }
     //Metodos
     public static void inicializarAsientos(ArrayList<PanelAsiento> listaAssientos, PanelPrincipal panelPrincipal){
@@ -65,11 +83,16 @@ public class PanelAsiento extends JPanel{
     public Asiento getAsiento(){
         return asiento;
     }
-
+    public static ArrayList<Asiento> getAsientosSeleccionados(){
+        return asientosSeleccionados;
+    }
     public static void setColor(Color col){
         color = col;
     }
     public void setAsiento(Asiento asiento){
         this.asiento = asiento;
+    }
+    public static void setAsientosSeleccionados(ArrayList<Asiento> asientos){
+        asientosSeleccionados = asientos;
     }
 }
