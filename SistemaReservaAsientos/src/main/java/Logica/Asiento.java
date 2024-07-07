@@ -3,52 +3,43 @@ package Logica;
 import Logica.Excepciones.AsientoNoDisponibleException;
 
 public class Asiento {
-    // Propiedades
-    private Boolean disponibilidad;
-    private int numeroDeAsiento;
+    //Propiedades
+    protected Boolean disponibilidad;
+    protected int numeroDeAsiento;
     private boolean esVIP;
-
-    // Constructor
-    public Asiento(int numeroDeAsiento, boolean esVIP) {
+    //Constructor
+    public Asiento(int numeroDeAsiento, boolean esVIP){
         this.numeroDeAsiento = numeroDeAsiento;
-        this.disponibilidad = true; // Por defecto, el asiento está disponible
+        this.disponibilidad = true;
         this.esVIP = esVIP;
     }
-
-    // Métodos
-    public void reservar() throws AsientoNoDisponibleException {
-        if (!disponibilidad) {
-            throw new AsientoNoDisponibleException("Asiento no disponible.");
+    //Metodos
+    public void reservar() throws AsientoNoDisponibleException{
+        if(disponibilidad == false){
+            throw new AsientoNoDisponibleException("AsientoNoDisponibleException");
         }
         disponibilidad = false;
     }
-
-    public void cancelarReserva() {
+    public void cancelarReserva(){
         disponibilidad = true;
     }
-
-    // Getters y setters
-    public Boolean getDisponibilidad() {
+    //Getters y setters
+    public Boolean getDisponibilidad(){
         return disponibilidad;
     }
-
-    public int getNumeroDeAsiento() {
+    public int getNumeroDeAsiento(){
         return numeroDeAsiento;
     }
-
-    public void setDisponibilidad(Boolean disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
-
-    public void setNumeroDeAsiento(int numeroDeAsiento) {
-        this.numeroDeAsiento = numeroDeAsiento;
-    }
-
-    public boolean esVIP() {
+    public boolean esVIP(){
         return esVIP;
     }
-
-    public void setVIP(boolean esVIP) {
+    public void setDisponibilidad(Boolean valor){
+        disponibilidad = valor; //Considerar provisorio por si se agrega una opcion para cancelar en un futuro
+    }
+    public void setNumeroDeAsiento(int num){
+        numeroDeAsiento = num;
+    }
+    public void setEsVIP(boolean esVIP){
         this.esVIP = esVIP;
     }
 }

@@ -9,6 +9,8 @@ public class PapusVilleDecorator extends BusDecorator{
     //Constructor
     public PapusVilleDecorator(Autobus bus){
         super(bus);
+        bus.setDestino("Papus Ville");
+        this.destino = bus.getDestino();
     }
     //Metodos
     @Override
@@ -27,8 +29,5 @@ public class PapusVilleDecorator extends BusDecorator{
     public LocalTime getHoraLlegada(){
         LocalTime aux = bus.getHoraSalida();
         return aux.plusHours(TipoDestino.PAPUSVILLE.getTiempo());
-    }
-    public TipoDestino destino(){
-        return TipoDestino.PAPUSVILLE;
     }
 }

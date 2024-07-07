@@ -9,6 +9,8 @@ public class SkibidiSpringsDecorator extends BusDecorator{
     //Constructor
     public SkibidiSpringsDecorator(Autobus bus){
         super(bus);
+        bus.setDestino("Skibidi Springs");
+        this.destino = bus.getDestino();
     }
     //Metodos
     @Override
@@ -27,8 +29,5 @@ public class SkibidiSpringsDecorator extends BusDecorator{
     public LocalTime getHoraLlegada(){
         LocalTime aux = bus.getHoraSalida();
         return aux.plusHours(TipoDestino.SKIBIDISPRINGS.getTiempo());
-    }
-    public TipoDestino destino(){
-        return TipoDestino.SKIBIDISPRINGS;
     }
 }

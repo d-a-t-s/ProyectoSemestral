@@ -12,6 +12,8 @@ public class BusDecorator extends Autobus {
         this.bus = bus;
         this.horaSalida = bus.getHoraSalida();
         this.company = bus.getCompany();
+        this.destino = bus.getDestino();
+        this.nPisos = bus.getnPisos();
         asientosPrimerPiso = bus.getAsientosPrimerPiso();
         asientosSegundoPiso = bus.getAsientosSegundoPiso();
     }

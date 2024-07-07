@@ -7,15 +7,18 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class TilinExpress extends Autobus{
+    //Propiedades
+
     //Constructor
     public TilinExpress(HoraSalida horaSalida){
         this.company = "Tilin Express";
+        this.nPisos = "2";
         this.horaSalida = horaSalida.getTiempo();
         asientosPrimerPiso = new ArrayList<>();
         asientosSegundoPiso = new ArrayList<>();
         for(int i = 0; i < 16; i++){
-            asientosPrimerPiso.add(new Asiento(i + 1, true)); // Asientos VIP en el primer piso
-            asientosSegundoPiso.add(new Asiento(i + 17, false)); // Asientos normales en el segundo piso
+            asientosPrimerPiso.add(new Asiento(i+1, false));
+            asientosSegundoPiso.add(new Asiento(i+17, true));
         }
     }
     //Metodos

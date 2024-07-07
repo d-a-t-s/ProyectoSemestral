@@ -7,14 +7,17 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class SigmaService extends Autobus{
+    //Propiedades
+
     //Constructor
     public SigmaService(HoraSalida horaSalida){
         this.company = "Sigma Service";
+        this.nPisos = "1";
         this.horaSalida = horaSalida.getTiempo();
         asientosPrimerPiso = new ArrayList<>();
         asientosSegundoPiso = null;
         for(int i = 0; i < 16; i++){
-            asientosPrimerPiso.add(new Asiento(i + 1, false));
+            asientosPrimerPiso.add(new Asiento(i+1, false));
         }
     }
     //Metodos

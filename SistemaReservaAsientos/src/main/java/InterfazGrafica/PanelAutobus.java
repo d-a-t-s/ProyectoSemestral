@@ -1,55 +1,60 @@
 package InterfazGrafica;
 
+import Logica.Autobuses.Autobus;
+
 import javax.swing.*;
+import javax.xml.transform.Source;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class PanelAutobus extends JPanel {
-    private JLabel labelAgencia;
-    private JLabel labelHoraSalida;
-    private JLabel labelHoraLlegada;
-    private JLabel labelDestino;
-    private JLabel labelNumeroPisos;
-    private JLabel labelCantidadAsientos;
+public class PanelAutobus extends JPanel{
+    //Propiedades
+    private Autobus bus;
+    //Constructor
+    public PanelAutobus(Autobus bus){
+        super();
+        this.bus = bus;
+        setOpaque(false);
 
-    public PanelAutobus() {
-        setLayout(new GridLayout(6, 1)); // Usar GridLayout para organizar los elementos
 
-        labelAgencia = new JLabel();
-        labelHoraSalida = new JLabel();
-        labelHoraLlegada = new JLabel();
-        labelDestino = new JLabel();
-        labelNumeroPisos = new JLabel();
-        labelCantidadAsientos = new JLabel();
-
-        add(labelAgencia);
-        add(labelHoraSalida);
-        add(labelHoraLlegada);
-        add(labelDestino);
-        add(labelNumeroPisos);
-        add(labelCantidadAsientos);
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                PanelPrincipal.setAutobusSeleccionado(bus);
+                for(int i = 0; i < 16; i++){
+                    PanelPrincipal.getAsientoPiso1List().get(i).setAsiento(bus.getAsientosPrimerPiso().get(i));
+                    if(bus.getAsientosSegundoPiso() == null){
+                        PanelPrincipal.getAsientoPiso2List().get(i).setAsiento(null);
+                    }else{
+                        PanelPrincipal.getAsientoPiso2List().get(i).setAsiento(bus.getAsientosSegundoPiso().get(i));
+                    }
+                    PanelPrincipal.getAsientoPiso1List().get(i).repaint();
+                    PanelPrincipal.getAsientoPiso2List().get(i).repaint();
+                }
+//                Ventana.getPanelPrincipal().repaint();
+            }
+        });
     }
+    //Metodos
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Arial", Font.BOLD, 16));
+        g.drawString(bus.getCompany(), 3, 28);
+        g.drawString(bus.getHoraSalida() + "/" + bus.getHoraLlegada(), 148, 28);
+        g.drawString(bus.getDestino(), 270, 28);
+        g.drawString(bus.getnPisos(), 450, 28);
+        int aux = bus.numeroAsientosDisponiblesPrimerPiso();
+        int aux1 = bus.numeroAsientosDisponiblesSegundoPiso();
 
-    public void setAgencia(String agencia) {
-        labelAgencia.setText("Agencia: " + agencia);
-    }
 
-    public void setHoraSalida(String horaSalida) {
-        labelHoraSalida.setText("Hora de salida: " + horaSalida);
-    }
-
-    public void setHoraLlegada(String horaLlegada) {
-        labelHoraLlegada.setText("Hora de llegada: " + horaLlegada);
-    }
-
-    public void setDestino(String destino) {
-        labelDestino.setText("Destino: " + destino);
-    }
-
-    public void setNumeroPisos(int numeroPisos) {
-        labelNumeroPisos.setText("Número de pisos: " + numeroPisos);
-    }
-
-    public void setCantidadAsientos(int cantidadAsientos) {
-        labelCantidadAsientos.setText("Cantidad de asientos disponibles: " + cantidadAsientos);
+        if(bus.getAsientosSegundoPiso() == null){
+            g.drawString("Piso 1: " + Integer.toString(aux), 550, 30);
+        }else{
+            g.drawString("Piso 1: " + Integer.toString(aux), 550, 20);
+            g.drawString("Piso 2: " + Integer.toString(aux1), 550, 38);
+        }
     }
 }

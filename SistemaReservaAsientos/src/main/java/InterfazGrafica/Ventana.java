@@ -3,7 +3,7 @@ package InterfazGrafica;
 import javax.swing.*;
 
 public class Ventana extends JFrame{
-    private PanelPrincipal panelPrincipal;
+    private static PanelPrincipal panelPrincipal;
 
     public Ventana(){
         super();
@@ -14,5 +14,9 @@ public class Ventana extends JFrame{
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+    }
+    //Getters y setters
+    public static PanelPrincipal getPanelPrincipal(){
+        return panelPrincipal;
     }
 }

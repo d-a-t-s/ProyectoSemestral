@@ -9,6 +9,8 @@ public class TilinTownDecorator extends BusDecorator{
     //Constructor
     public TilinTownDecorator(Autobus bus){
         super(bus);
+        bus.setDestino("Tilin Town");
+        this.destino = bus.getDestino();
     }
     //Metodos
     @Override
@@ -27,8 +29,5 @@ public class TilinTownDecorator extends BusDecorator{
     public LocalTime getHoraLlegada(){
         LocalTime aux = bus.getHoraSalida();
         return aux.plusHours(TipoDestino.TILINTOWN.getTiempo());
-    }
-    public TipoDestino destino(){
-        return TipoDestino.TILINTOWN;
     }
 }

@@ -9,6 +9,8 @@ public class SigmaCityDecorator extends BusDecorator{
     //Constructor
     public SigmaCityDecorator(Autobus bus){
         super(bus);
+        bus.setDestino("Sigma City");
+        this.destino = bus.getDestino();
     }
     //Metodos
     @Override
@@ -27,8 +29,5 @@ public class SigmaCityDecorator extends BusDecorator{
     public LocalTime getHoraLlegada(){
         LocalTime aux = bus.getHoraSalida();
         return aux.plusHours(TipoDestino.SIGMACITY.getTiempo());
-    }
-    public TipoDestino destino(){
-        return TipoDestino.SIGMACITY;
     }
 }

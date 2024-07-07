@@ -10,6 +10,9 @@ public class MewingMetropolisDecorator extends BusDecorator{
     //Constructor
     public MewingMetropolisDecorator(Autobus bus){
         super(bus);
+        String aux = "Mewing Metr.";
+        bus.setDestino(aux);
+        this.destino = bus.getDestino();
     }
     //Metodos
     @Override
@@ -28,9 +31,5 @@ public class MewingMetropolisDecorator extends BusDecorator{
     public LocalTime getHoraLlegada(){
         LocalTime aux = bus.getHoraSalida();
         return aux.plusHours(TipoDestino.MAWINGMETROPOLIS.getTiempo());
-    }
-    //Metodo para poder ver a que lugar se dirige el autobus
-    public TipoDestino destino(){
-        return TipoDestino.MAWINGMETROPOLIS;
     }
 }
