@@ -8,122 +8,126 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class PanelAsiento extends JPanel{
-    //Propiedades
+import Logica.Asiento;
+import Logica.Excepciones.SegundoPisoNoDisponibleException;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+public class PanelAsiento extends JPanel {
     private static Color color;
     private Asiento asientoNormal;
     private Asiento asientoVIP;
     private static ArrayList<Asiento> asientosSeleccionados;
-    //Constructor
+
     public PanelAsiento() {
         super();
         asientosSeleccionados = new ArrayList<>();
 
-
-
-        this.addMouseListener(new MouseAdapter(){
+        this.addMouseListener(new MouseAdapter() {
             @Override
-            public void mousePressed(MouseEvent e){
-                if(PanelPrincipal.getNumeroPiso() == 1){
-                    if(asientosSeleccionados.contains(asientoNormal)){
-
-                    }else{
-                        asientosSeleccionados.add(asientoNormal);
+            public void mousePressed(MouseEvent e) {
+                try {
+                    if (PanelPrincipal.getNumeroPiso() == 1) {
+                        if (asientosSeleccionados.contains(asientoNormal)) {
+                            asientosSeleccionados.remove(asientoNormal);
+                        } else {
+                            asientosSeleccionados.add(asientoNormal);
+                        }
+                    } else if (PanelPrincipal.getNumeroPiso() == 2) {
+                        if (asientoVIP == null) {
+                            throw new SegundoPisoNoDisponibleException("Este autobús no tiene segundo piso.");
+                        }
+                        if (asientosSeleccionados.contains(asientoVIP)) {
+                            asientosSeleccionados.remove(asientoVIP);
+                        } else {
+                            asientosSeleccionados.add(asientoVIP);
+                        }
                     }
-                }else if(PanelPrincipal.getNumeroPiso() == 2){
-                    if(asientosSeleccionados.contains(asientoVIP) || asientoVIP == null){
-
-                    }else{
-                        asientosSeleccionados.add(asientoVIP);
-                    }
+                    repaint(); // Vuelve a pintar el panel después de cada clic
+                } catch (SegundoPisoNoDisponibleException ex) {
+                    // Por ejemplo, mostrar un mensaje de error al usuario
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
-//                if(PanelPrincipal.getNumeroPiso() == 1){
-//                    for(int i = 0; i < 16; i++){
-//                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(false);
-//                    }
-//                }else if(PanelPrincipal.getNumeroPiso() == 2){
-//                    for(int i = 0; i < 16; i++){
-//                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(false);
-//                    }
-//                }
-//                asientosSeleccionados.add(asiento);
-//                if(PanelPrincipal.getNumeroPiso() == 1){
-//                    for(int i = 0; i < 16; i++){
-//                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(true);
-//                    }
-//                }else if(PanelPrincipal.getNumeroPiso() == 2){
-//                    for(int i = 0; i < 16; i++){
-//                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(true);
-//                    }
-//                }
             }
         });
     }
-    //Metodos
-    public static void inicializarAsientos(ArrayList<PanelAsiento> listaAssientos, PanelPrincipal panelPrincipal){
+
+    public static void inicializarAsientos(ArrayList<PanelAsiento> listaAssientos, PanelPrincipal panelPrincipal) {
         int aux = 0;
-        for(int j = 0; j < 4; j++){
-            for(int i = 0; i < 4; i++){
+        for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < 4; i++) {
                 if (i == 2 || i == 3) {
                     listaAssientos.add(new PanelAsiento());
                     listaAssientos.get(i + aux).setBounds(697 + i * 67 + 20, 101 + j * 97, 45, 75);
                     panelPrincipal.add(listaAssientos.get(i + aux));
-                }else{
+                } else {
                     listaAssientos.add(new PanelAsiento());
                     listaAssientos.get(i + aux).setBounds(697 + i * 67, 101 + j * 97, 45, 75);
                     panelPrincipal.add(listaAssientos.get(i + aux));
-
                 }
             }
             aux = aux + 4;
         }
     }
-    @Override
-    public void paintComponent(Graphics g){ //ESTE METODO DEBE TENERSE EN CUENTA Y PROBARSE LUEGO PUES DADO QUE TODOS LOS ASIENTOS ESTAN DISPONIBLES NO SE PUEDE SABER SI REALMENTE FUNCIONA CORRECTAMENTE
-        super.paintComponent(g);
-        if(PanelPrincipal.getNumeroPiso() == 1){
-            if(asientoNormal == null){
-                color = Color.LIGHT_GRAY;
-            }else if(asientoNormal.getDisponibilidad() == true){
-                color = Color.GREEN;
-            }else if(asientoNormal.getDisponibilidad() == false){
-                color = Color.RED;
-            }
-            g.setColor(color);
-            g.fillRect(0,0,45,75);
-        }else if(PanelPrincipal.getNumeroPiso() == 2){
-            if(asientoVIP == null){
-                color = Color.LIGHT_GRAY;
-            }else if(asientoVIP.getDisponibilidad() == true){
-                color = Color.GREEN;
-            }else if(asientoVIP.getDisponibilidad() == false){
-                color = Color.RED;
-            }
-            g.setColor(color);
-            g.fillRect(0,0,45,75);
-        }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (PanelPrincipal.getNumeroPiso() == 1) {
+            if (asientoNormal == null) {
+                color = Color.LIGHT_GRAY;
+            } else if (asientoNormal.getDisponibilidad()) {
+                color = Color.GREEN;
+            } else {
+                color = Color.RED;
+            }
+            if (asientosSeleccionados.contains(asientoNormal)) {
+                color = Color.BLUE; // Si está seleccionado, píntalo de azul
+            }
+            g.setColor(color);
+            g.fillRect(0, 0, 45, 75);
+        } else if (PanelPrincipal.getNumeroPiso() == 2) {
+            if (asientoVIP == null) {
+                color = Color.LIGHT_GRAY;
+            } else if (asientoVIP.getDisponibilidad()) {
+                color = Color.GREEN;
+            } else {
+                color = Color.RED;
+            }
+            if (asientosSeleccionados.contains(asientoVIP)) {
+                color = Color.BLUE; // Si está seleccionado, píntalo de azul
+            }
+            g.setColor(color);
+            g.fillRect(0, 0, 45, 75);
+        }
     }
-    //Getters y setters
-    public Asiento getAsientoNormal(){
+
+    public Asiento getAsientoNormal() {
         return asientoNormal;
     }
-    public Asiento getAsientoVIP(){
+
+    public Asiento getAsientoVIP() {
         return asientoVIP;
     }
-    public static ArrayList<Asiento> getAsientosSeleccionados(){
+
+    public static ArrayList<Asiento> getAsientosSeleccionados() {
         return asientosSeleccionados;
     }
-    public static void setColor(Color col){
-        color = col;
-    }
-    public void setAsientoNormal(Asiento asiento){
+
+    public void setAsientoNormal(Asiento asiento) {
         this.asientoNormal = asiento;
     }
-    public void setAsientoVIP(Asiento asiento){
+
+    public void setAsientoVIP(Asiento asiento) {
         this.asientoVIP = asiento;
     }
-    public static void setAsientosSeleccionados(ArrayList<Asiento> asientos){
+
+    public static void setAsientosSeleccionados(ArrayList<Asiento> asientos) {
         asientosSeleccionados = asientos;
     }
 }
+
