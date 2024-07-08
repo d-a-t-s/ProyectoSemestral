@@ -11,7 +11,7 @@ public class PanelReservar extends JPanel {
     // Constructor
     public PanelReservar() {
         super();
-        setBounds(666, 669, 161, 45);
+        setBounds(666, 669, 328, 45);
         setOpaque(false);
 
         this.addMouseListener(new MouseAdapter() {
@@ -25,7 +25,7 @@ public class PanelReservar extends JPanel {
                     }
                 }
                 for (int i = 0; i < 16; i++) {
-                    PanelPrincipal.getAsientoPiso1List().get(i).repaint();
+                    PanelPrincipal.getAsientoPisoList().get(i).repaint();
                 }
                 Ventana.getPanelPrincipal().repaint();
                 PanelAsiento.getAsientosSeleccionados().clear();

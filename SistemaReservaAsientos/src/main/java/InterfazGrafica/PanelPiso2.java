@@ -20,7 +20,7 @@ public class PanelPiso2 extends JPanel implements PanelSeleccionable{
             public void mousePressed(MouseEvent e) {
                 PanelPrincipal.setNumeroPiso(2);
                 for(int i = 0; i < 16; i++){
-                    PanelPrincipal.getAsientoPiso1List().get(i).repaint();
+                    PanelPrincipal.getAsientoPisoList().get(i).repaint();
                 }
 
                 if (isSelected) {

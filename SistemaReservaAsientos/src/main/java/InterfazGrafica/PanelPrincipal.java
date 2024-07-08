@@ -1,6 +1,5 @@
 package InterfazGrafica;
 
-import Logica.Asiento;
 import Logica.Autobuses.*;
 import Logica.Decorators.*;
 import Logica.HoraSalida;
@@ -11,15 +10,12 @@ import java.util.ArrayList;
 
 public class PanelPrincipal extends JPanel{
     //Propiedades
-    private Image imagenInterfaz = new ImageIcon(getClass().getClassLoader().getResource("InterfazReserva.png")).getImage();
+    private Image imagenInterfaz = new ImageIcon(getClass().getClassLoader().getResource("InterfazReservar.png")).getImage();
     private PanelPiso1 panelPiso1;
     private PanelPiso2 panelPiso2;
     private PanelReservar panelReservar;
-    private PanelIngresar panelIngresar;
     private PanelInformacion panelInformacion;
-    private static ArrayList<PanelAsiento> asientoPiso1List;
-    //Sera mejor no utilizar paneles superpuestos
-//    private static ArrayList<PanelAsiento> asientoPiso2List;
+    private static ArrayList<PanelAsiento> asientoPisoList;
     private ArrayList<PanelAutobus> panelesAutobuseslist;
     private ArrayList<Autobus> autobusList;
     //Variable para saber a que autobus nos estamos refiriendo
@@ -46,7 +42,6 @@ public class PanelPrincipal extends JPanel{
         bus4 = new SkibidiSpringsDecorator(bus4);
         bus5 = new MewingMetropolisDecorator(bus5);
 
-        autobusSeleccionado = bus1;
         //Agregamos los buses a la lista
         autobusList.add(bus1);
         autobusList.add(bus2);
@@ -65,22 +60,17 @@ public class PanelPrincipal extends JPanel{
         panelPiso2 = new PanelPiso2();
         this.add(panelPiso2);
 
-        //Agregamos los paneles para reservar y para ingresar
+        //Agregamos los paneles para reservar
         panelReservar = new PanelReservar();
         this.add(panelReservar);
-        panelIngresar = new PanelIngresar();
-        this.add(panelIngresar);
 
         //Agregamos el panel de informacion
         panelInformacion = new PanelInformacion();
         this.add(panelInformacion);
 
         //Agregamos los paneles con los que seleccionaremos los asientos
-        asientoPiso1List = new ArrayList<>();
-        PanelAsiento.inicializarAsientos(asientoPiso1List, this);
-        //asientosPiso2List ya no existe
-//        asientoPiso2List = new ArrayList<>();
-//        PanelAsiento.inicializarAsientos(asientoPiso2List, this);
+        asientoPisoList = new ArrayList<>();
+        PanelAsiento.inicializarAsientos(asientoPisoList, this);
 
         //Agregamos los paneles con los que se seleccionaran los autobuses
         panelesAutobuseslist = new ArrayList<>();
@@ -101,12 +91,9 @@ public class PanelPrincipal extends JPanel{
     public static Autobus getAutobusSeleccionado(){
         return autobusSeleccionado;
     }
-    public static ArrayList<PanelAsiento> getAsientoPiso1List(){
-        return asientoPiso1List;
+    public static ArrayList<PanelAsiento> getAsientoPisoList(){
+        return asientoPisoList;
     }
-//    public static ArrayList<PanelAsiento> getAsientoPiso2List(){
-//        return asientoPiso2List;
-//    }
     public static int getNumeroPiso(){
         return numeroPiso;
     }
@@ -114,12 +101,9 @@ public class PanelPrincipal extends JPanel{
     public static void setAutobusSeleccionado(Autobus autobusSelec){
         autobusSeleccionado = autobusSelec;
     }
-    public static void setAsientoPiso1List(ArrayList<PanelAsiento> asientoPiso1){
-        asientoPiso1List = asientoPiso1;
+    public static void setAsientoPisoList(ArrayList<PanelAsiento> asientoPiso1){
+        asientoPisoList = asientoPiso1;
     }
-//    public static void setAsientoPiso2List(ArrayList<PanelAsiento> asientoPiso2){
-//        asientoPiso2List = asientoPiso2;
-//    }
     public static void setNumeroPiso(int num){
         numeroPiso = num;
     }

@@ -33,13 +33,13 @@ public class PanelAutobus extends JPanel implements PanelSeleccionable {
 
                 // Actualizar los asientos de los pisos
                 for (int i = 0; i < 16; i++) {
-                    PanelPrincipal.getAsientoPiso1List().get(i).setAsientoNormal(bus.getAsientosPrimerPiso().get(i));
+                    PanelPrincipal.getAsientoPisoList().get(i).setAsientoNormal(bus.getAsientosPrimerPiso().get(i));
                     if (bus.getAsientosSegundoPiso() == null) {
-                        PanelPrincipal.getAsientoPiso1List().get(i).setAsientoVIP(null);
+                        PanelPrincipal.getAsientoPisoList().get(i).setAsientoVIP(null);
                     } else {
-                        PanelPrincipal.getAsientoPiso1List().get(i).setAsientoVIP(bus.getAsientosSegundoPiso().get(i));
+                        PanelPrincipal.getAsientoPisoList().get(i).setAsientoVIP(bus.getAsientosSegundoPiso().get(i));
                     }
-                    PanelPrincipal.getAsientoPiso1List().get(i).repaint();
+                    PanelPrincipal.getAsientoPisoList().get(i).repaint();
                 }
             }
         });
