@@ -4,7 +4,122 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="151f6d3f-bff6-47a7-aba6-69808d278bfb" name="Changes" comment="" />
+    <list default="true" id="151f6d3f-bff6-47a7-aba6-69808d278bfb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/GestorSeleccion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/InterfazGUI.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelAsiento.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelAutobus.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelInformacion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelPiso1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelPiso2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelPrincipal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelReservar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/PanelSeleccionable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/Ventana.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/InterfazGrafica/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Asiento.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/Autobus.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/MewingMobility.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/PapuBuses.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/SigmaService.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/SkibidiTravel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/TestCompraReal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/TilinExpress.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Autobuses/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/BusDecorator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/MewingMetropolisDecorator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/PapusVilleDecorator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/SigmaCityDecorator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/SkibidiSpringsDecorator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/TilinTownDecorator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Decorators/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Excepciones/AsientoNoDisponibleException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Excepciones/SegundoPisoNoDisponibleException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Excepciones/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/Excepciones/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/HoraSalida.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/TipoDestino.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/Logica/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-16.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/legal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/legal/jquery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/legal/jqueryUI.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/module-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/overview-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/resource-files/copy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/resource-files/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/resource-files/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/resource-files/link.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/resource-files/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/resource-files/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/script-files/jquery-3.6.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/script-files/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/script-files/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/script-files/search-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/script-files/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/serialized-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/tag-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaDoc/type-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/GestorSeleccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/GestorSeleccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/InterfazGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/InterfazGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelAsiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelAsiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelAutobus.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelAutobus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelInformacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelInformacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelPiso1.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelPiso1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelPiso2.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelPiso2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelReservar.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelReservar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelSeleccionable.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/PanelSeleccionable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/Ventana.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/InterfazGrafica/Ventana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Asiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Asiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/Autobus.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/Autobus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/MewingMobility.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/MewingMobility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/PapuBuses.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/PapuBuses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/SigmaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/SigmaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/SkibidiTravel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/SkibidiTravel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/TilinExpress.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Autobuses/TilinExpress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/BusDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/BusDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/MewingMetropolisDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/MewingMetropolisDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/PapusVilleDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/PapusVilleDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/SigmaCityDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/SigmaCityDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/SkibidiSpringsDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/SkibidiSpringsDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/TilinTownDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Decorators/TilinTownDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Excepciones/AsientoNoDisponibleException.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Excepciones/AsientoNoDisponibleException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Excepciones/SegundoPisoNoDisponibleException.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/Excepciones/SegundoPisoNoDisponibleException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/HoraSalida.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/HoraSalida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/TipoDestino.java" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaReservaAsientos/src/main/java/Logica/TipoDestino.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +141,7 @@
   "keyToString": {
     "Application.InterfazGUI.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Jorsh/Documents/GitHub/ProyectoSemestral"
   }
