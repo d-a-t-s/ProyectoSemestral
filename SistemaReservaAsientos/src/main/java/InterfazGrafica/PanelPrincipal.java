@@ -123,5 +123,8 @@ public class PanelPrincipal extends JPanel{
     public static void setNumeroPiso(int num){
         numeroPiso = num;
     }
+    public PanelInformacion getPanelInformacion() {
+        return panelInformacion;
+    }
 
 }

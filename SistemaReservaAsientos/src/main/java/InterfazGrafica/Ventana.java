@@ -7,13 +7,14 @@ public class Ventana extends JFrame{
 
     public Ventana(){
         super();
-        this.setTitle("Expendedor");
+        this.setTitle("Transportes papu");
         panelPrincipal = new PanelPrincipal();
         this.add(panelPrincipal);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        this.setResizable(false);
     }
     //Getters y setters
     public static PanelPrincipal getPanelPrincipal(){
