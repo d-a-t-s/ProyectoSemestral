@@ -129,5 +129,9 @@ public class PanelAsiento extends JPanel {
     public static void setAsientosSeleccionados(ArrayList<Asiento> asientos) {
         asientosSeleccionados = asientos;
     }
+
+    public static void limpiarAsientosSeleccionados() {
+        asientosSeleccionados.clear(); // Método estático para limpiar el arreglo de asientos seleccionados
+    }
 }
 

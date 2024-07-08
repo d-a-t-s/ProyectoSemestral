@@ -22,8 +22,10 @@ public class PanelAutobus extends JPanel implements PanelSeleccionable {
             @Override
             public void mousePressed(MouseEvent e) {
                 // Seleccionar este panel de autobús
+                PanelPrincipal.setNumeroPiso(1);
                 GestorSeleccion.seleccionarPanel(PanelAutobus.this);
                 PanelPrincipal.setAutobusSeleccionado(bus);
+                PanelAsiento.limpiarAsientosSeleccionados();
 
                 // Actualizar los asientos de los pisos
                 for (int i = 0; i < 16; i++) {
