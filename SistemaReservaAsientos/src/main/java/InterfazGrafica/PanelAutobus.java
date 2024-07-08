@@ -11,17 +11,22 @@ public class PanelAutobus extends JPanel implements PanelSeleccionable {
     // Propiedades
     private Autobus bus;
     private boolean seleccionado = false;
+    private PanelInformacion panelInformacion;
 
     // Constructor
     public PanelAutobus(Autobus bus) {
         super();
         this.bus = bus;
         setOpaque(false);
+        this.panelInformacion = panelInformacion;
 
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 // Seleccionar este panel de autobús
+                if (panelInformacion != null) {
+                    panelInformacion.limpiarInformacion();
+                }
                 PanelPrincipal.setNumeroPiso(1);
                 GestorSeleccion.seleccionarPanel(PanelAutobus.this);
                 PanelPrincipal.setAutobusSeleccionado(bus);
@@ -57,6 +62,7 @@ public class PanelAutobus extends JPanel implements PanelSeleccionable {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
         // Dibuja la información del autobús
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 16));
@@ -78,6 +84,8 @@ public class PanelAutobus extends JPanel implements PanelSeleccionable {
 
         // Si está seleccionado, dibuja un borde alrededor del panel
         if (isSelected()) {
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setStroke(new BasicStroke(3)); // Grosor del borde
             g.setColor(Color.BLUE);
             g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
         }

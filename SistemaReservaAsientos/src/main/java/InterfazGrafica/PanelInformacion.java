@@ -48,4 +48,8 @@ public class PanelInformacion extends JPanel {
         }
         areaInformacion.setText(informacion.toString());
     }
+
+    public void limpiarInformacion() {
+        areaInformacion.setText("");
+    }
 }
