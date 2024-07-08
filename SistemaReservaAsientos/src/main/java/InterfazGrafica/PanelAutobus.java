@@ -23,15 +23,14 @@ public class PanelAutobus extends JPanel{
             public void mousePressed(MouseEvent e) {
                 PanelPrincipal.setAutobusSeleccionado(bus);
                 for(int i = 0; i < 16; i++){
-                    PanelPrincipal.getAsientoPiso1List().get(i).setAsiento(bus.getAsientosPrimerPiso().get(i));
+                    PanelPrincipal.getAsientoPiso1List().get(i).setAsientoNormal(bus.getAsientosPrimerPiso().get(i));
                     if(bus.getAsientosSegundoPiso() == null){
-                        PanelPrincipal.getAsientoPiso2List().get(i).setAsiento(null);
+                        PanelPrincipal.getAsientoPiso1List().get(i).setAsientoVIP(null);
                     }else{
-                        PanelPrincipal.getAsientoPiso2List().get(i).setAsiento(bus.getAsientosSegundoPiso().get(i));
-                        PanelPrincipal.getAsientoPiso2List().get(i).repaint();
+                        PanelPrincipal.getAsientoPiso1List().get(i).setAsientoVIP(bus.getAsientosSegundoPiso().get(i));
+//                        PanelPrincipal.getAsientoPiso2List().get(i).repaint();
                     }
                     PanelPrincipal.getAsientoPiso1List().get(i).repaint();
-
                 }
 //                Ventana.getPanelPrincipal().repaint();
             }

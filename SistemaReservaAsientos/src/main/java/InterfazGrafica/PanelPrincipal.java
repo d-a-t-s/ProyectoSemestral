@@ -18,7 +18,8 @@ public class PanelPrincipal extends JPanel{
     private PanelIngresar panelIngresar;
     private PanelInformacion panelInformacion;
     private static ArrayList<PanelAsiento> asientoPiso1List;
-    private static ArrayList<PanelAsiento> asientoPiso2List;
+    //Sera mejor no utilizar paneles superpuestos
+//    private static ArrayList<PanelAsiento> asientoPiso2List;
     private ArrayList<PanelAutobus> panelesAutobuseslist;
     private ArrayList<Autobus> autobusList;
     //Variable para saber a que autobus nos estamos refiriendo
@@ -77,8 +78,9 @@ public class PanelPrincipal extends JPanel{
         //Agregamos los paneles con los que seleccionaremos los asientos
         asientoPiso1List = new ArrayList<>();
         PanelAsiento.inicializarAsientos(asientoPiso1List, this);
-        asientoPiso2List = new ArrayList<>();
-        PanelAsiento.inicializarAsientos(asientoPiso2List, this);
+        //asientosPiso2List ya no existe
+//        asientoPiso2List = new ArrayList<>();
+//        PanelAsiento.inicializarAsientos(asientoPiso2List, this);
 
         //Agregamos los paneles con los que se seleccionaran los autobuses
         panelesAutobuseslist = new ArrayList<>();
@@ -102,9 +104,9 @@ public class PanelPrincipal extends JPanel{
     public static ArrayList<PanelAsiento> getAsientoPiso1List(){
         return asientoPiso1List;
     }
-    public static ArrayList<PanelAsiento> getAsientoPiso2List(){
-        return asientoPiso2List;
-    }
+//    public static ArrayList<PanelAsiento> getAsientoPiso2List(){
+//        return asientoPiso2List;
+//    }
     public static int getNumeroPiso(){
         return numeroPiso;
     }
@@ -115,9 +117,9 @@ public class PanelPrincipal extends JPanel{
     public static void setAsientoPiso1List(ArrayList<PanelAsiento> asientoPiso1){
         asientoPiso1List = asientoPiso1;
     }
-    public static void setAsientoPiso2List(ArrayList<PanelAsiento> asientoPiso2){
-        asientoPiso2List = asientoPiso2;
-    }
+//    public static void setAsientoPiso2List(ArrayList<PanelAsiento> asientoPiso2){
+//        asientoPiso2List = asientoPiso2;
+//    }
     public static void setNumeroPiso(int num){
         numeroPiso = num;
     }

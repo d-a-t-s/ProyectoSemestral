@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class PanelAsiento extends JPanel{
     //Propiedades
     private static Color color;
-    private Asiento asiento;
+    private Asiento asientoNormal;
+    private Asiento asientoVIP;
     private static ArrayList<Asiento> asientosSeleccionados;
     //Constructor
     public PanelAsiento() {
@@ -24,24 +25,37 @@ public class PanelAsiento extends JPanel{
             @Override
             public void mousePressed(MouseEvent e){
                 if(PanelPrincipal.getNumeroPiso() == 1){
-                    for(int i = 0; i < 16; i++){
-                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(false);
+                    if(asientosSeleccionados.contains(asientoNormal)){
+
+                    }else{
+                        asientosSeleccionados.add(asientoNormal);
                     }
                 }else if(PanelPrincipal.getNumeroPiso() == 2){
-                    for(int i = 0; i < 16; i++){
-                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(false);
+                    if(asientosSeleccionados.contains(asientoVIP) || asientoVIP == null){
+
+                    }else{
+                        asientosSeleccionados.add(asientoVIP);
                     }
                 }
-                asientosSeleccionados.add(asiento);
-                if(PanelPrincipal.getNumeroPiso() == 1){
-                    for(int i = 0; i < 16; i++){
-                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(true);
-                    }
-                }else if(PanelPrincipal.getNumeroPiso() == 2){
-                    for(int i = 0; i < 16; i++){
-                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(true);
-                    }
-                }
+//                if(PanelPrincipal.getNumeroPiso() == 1){
+//                    for(int i = 0; i < 16; i++){
+//                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(false);
+//                    }
+//                }else if(PanelPrincipal.getNumeroPiso() == 2){
+//                    for(int i = 0; i < 16; i++){
+//                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(false);
+//                    }
+//                }
+//                asientosSeleccionados.add(asiento);
+//                if(PanelPrincipal.getNumeroPiso() == 1){
+//                    for(int i = 0; i < 16; i++){
+//                        PanelPrincipal.getAsientoPiso2List().get(i).setEnabled(true);
+//                    }
+//                }else if(PanelPrincipal.getNumeroPiso() == 2){
+//                    for(int i = 0; i < 16; i++){
+//                        PanelPrincipal.getAsientoPiso1List().get(i).setEnabled(true);
+//                    }
+//                }
             }
         });
     }
@@ -55,7 +69,6 @@ public class PanelAsiento extends JPanel{
                     listaAssientos.get(i + aux).setBounds(697 + i * 67 + 20, 101 + j * 97, 45, 75);
                     panelPrincipal.add(listaAssientos.get(i + aux));
                 }else{
-
                     listaAssientos.add(new PanelAsiento());
                     listaAssientos.get(i + aux).setBounds(697 + i * 67, 101 + j * 97, 45, 75);
                     panelPrincipal.add(listaAssientos.get(i + aux));
@@ -68,20 +81,35 @@ public class PanelAsiento extends JPanel{
     @Override
     public void paintComponent(Graphics g){ //ESTE METODO DEBE TENERSE EN CUENTA Y PROBARSE LUEGO PUES DADO QUE TODOS LOS ASIENTOS ESTAN DISPONIBLES NO SE PUEDE SABER SI REALMENTE FUNCIONA CORRECTAMENTE
         super.paintComponent(g);
-
-        if(asiento == null){
-            color = Color.LIGHT_GRAY;
-        }else if(asiento.getDisponibilidad() == true){
-            color = Color.GREEN;
-        }else if(asiento.getDisponibilidad() == false){
-            color = Color.RED;
+        if(PanelPrincipal.getNumeroPiso() == 1){
+            if(asientoNormal == null){
+                color = Color.LIGHT_GRAY;
+            }else if(asientoNormal.getDisponibilidad() == true){
+                color = Color.GREEN;
+            }else if(asientoNormal.getDisponibilidad() == false){
+                color = Color.RED;
+            }
+            g.setColor(color);
+            g.fillRect(0,0,45,75);
+        }else if(PanelPrincipal.getNumeroPiso() == 2){
+            if(asientoVIP == null){
+                color = Color.LIGHT_GRAY;
+            }else if(asientoVIP.getDisponibilidad() == true){
+                color = Color.GREEN;
+            }else if(asientoVIP.getDisponibilidad() == false){
+                color = Color.RED;
+            }
+            g.setColor(color);
+            g.fillRect(0,0,45,75);
         }
-        g.setColor(color);
-        g.fillRect(0,0,45,75);
+
     }
     //Getters y setters
-    public Asiento getAsiento(){
-        return asiento;
+    public Asiento getAsientoNormal(){
+        return asientoNormal;
+    }
+    public Asiento getAsientoVIP(){
+        return asientoVIP;
     }
     public static ArrayList<Asiento> getAsientosSeleccionados(){
         return asientosSeleccionados;
@@ -89,8 +117,11 @@ public class PanelAsiento extends JPanel{
     public static void setColor(Color col){
         color = col;
     }
-    public void setAsiento(Asiento asiento){
-        this.asiento = asiento;
+    public void setAsientoNormal(Asiento asiento){
+        this.asientoNormal = asiento;
+    }
+    public void setAsientoVIP(Asiento asiento){
+        this.asientoVIP = asiento;
     }
     public static void setAsientosSeleccionados(ArrayList<Asiento> asientos){
         asientosSeleccionados = asientos;

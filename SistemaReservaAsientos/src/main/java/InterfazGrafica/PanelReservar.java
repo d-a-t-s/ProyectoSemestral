@@ -15,6 +15,7 @@ public class PanelReservar extends JPanel{
         super();
         setBounds(666, 669, 161, 45);
         setOpaque(false);
+
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e){
@@ -26,12 +27,9 @@ public class PanelReservar extends JPanel{
                     }
                 }
                 for(int i = 0; i < 16; i++){
-                    if(PanelPrincipal.getNumeroPiso() == 1){
-                        PanelPrincipal.getAsientoPiso1List().get(i).repaint();
-                    }else if(PanelPrincipal.getNumeroPiso() == 2){
-                        PanelPrincipal.getAsientoPiso2List().get(i).repaint();
-                    }
+                    PanelPrincipal.getAsientoPiso1List().get(i).repaint();
                 }
+                Ventana.getPanelPrincipal().repaint();
                 PanelAsiento.getAsientosSeleccionados().clear();
             }
         });
