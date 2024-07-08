@@ -2,22 +2,33 @@ package InterfazGrafica;
 
 import javax.swing.*;
 
-public class Ventana extends JFrame{
+/**
+ * Clase que representa la ventana principal de la aplicación.
+ */
+public class Ventana extends JFrame {
     private static PanelPrincipal panelPrincipal;
 
-    public Ventana(){
+    /**
+     * Constructor de la clase Ventana.
+     * Configura y muestra la ventana principal.
+     */
+    public Ventana() {
         super();
-        this.setTitle("Transportes papu");
-        panelPrincipal = new PanelPrincipal();
-        this.add(panelPrincipal);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.pack();
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
-        this.setResizable(false);
+        this.setTitle("Transportes papu"); // Título de la ventana
+        panelPrincipal = new PanelPrincipal(); // Instancia del panel principal
+        this.add(panelPrincipal); // Agrega el panel principal a la ventana
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); // Cierra la aplicación al cerrar la ventana
+        this.pack(); // Ajusta el tamaño de la ventana según los componentes internos
+        this.setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        this.setVisible(true); // Hace visible la ventana
+        this.setResizable(false); // Evita que se pueda redimensionar la ventana
     }
-    //Getters y setters
-    public static PanelPrincipal getPanelPrincipal(){
+
+    /**
+     * Método estático para obtener el panel principal de la ventana.
+     * @return el panel principal de la ventana.
+     */
+    public static PanelPrincipal getPanelPrincipal() {
         return panelPrincipal;
     }
 }

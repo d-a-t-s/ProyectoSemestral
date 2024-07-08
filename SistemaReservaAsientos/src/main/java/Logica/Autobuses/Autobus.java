@@ -3,17 +3,17 @@ package Logica.Autobuses;
 import Logica.Asiento;
 import Logica.Excepciones.AsientoNoDisponibleException;
 import Logica.Excepciones.SegundoPisoNoDisponibleException;
-import Logica.HoraSalida;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public abstract class Autobus{
+/**
+ * Clase abstracta que representa un autobús genérico.
+ */
+public abstract class Autobus {
 
-    //Por simplicidad los asientos del segundo piso seran VIP y los asientos del primer piso seran normales por tanto, solo aquellos buses con dos pisos son los que tendran asientos VIP
-
-    //Propiedades
+    // Propiedades
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
     protected LocalTime horaSalida;
     protected String company;
@@ -22,70 +22,98 @@ public abstract class Autobus{
     protected String destino;
     protected String nPisos;
 
-    //Metodos
+    // Métodos abstractos que deben ser implementados por las subclases
     public abstract int getPrecioAsientoNormal();
     public abstract int getPrecioAsientoVIP();
     public abstract LocalTime getHoraLlegada();
 
-    //Se supone que para reservar un asiento debo clickear en un recuadro correspondiente al asiento que quiero reservar, por lo que el numero a seleccionar siempre sera correcto
-    //Es decir, cuando se clickee, automaticamente una variable sera igual al numero del asiento que luego se le pasara como parametro a los siguientes metodos
-
-    public void reservarAsientoPrimerPiso(int numeroDeAsiento) throws AsientoNoDisponibleException{
+    /**
+     * Reserva un asiento en el primer piso del autobús.
+     * @param numeroDeAsiento Número del asiento a reservar.
+     * @throws AsientoNoDisponibleException Si el asiento no está disponible para reservar.
+     */
+    public void reservarAsientoPrimerPiso(int numeroDeAsiento) throws AsientoNoDisponibleException {
         asientosPrimerPiso.get(numeroDeAsiento - 1).reservar();
     }
-    public void reservarAsientoSegundoPiso(int numeroDeAsiento) throws AsientoNoDisponibleException, SegundoPisoNoDisponibleException{
-        if(asientosSegundoPiso == null){
-            throw new SegundoPisoNoDisponibleException("SegundoPisoNoDisponibleException");
+
+    /**
+     * Reserva un asiento en el segundo piso del autobús.
+     * @param numeroDeAsiento Número del asiento a reservar.
+     * @throws AsientoNoDisponibleException Si el asiento no está disponible para reservar.
+     * @throws SegundoPisoNoDisponibleException Si el segundo piso no está disponible en este autobús.
+     */
+    public void reservarAsientoSegundoPiso(int numeroDeAsiento) throws AsientoNoDisponibleException, SegundoPisoNoDisponibleException {
+        if (asientosSegundoPiso == null) {
+            throw new SegundoPisoNoDisponibleException("Segundo piso no disponible en este autobús");
         }
         asientosSegundoPiso.get(numeroDeAsiento - 17).reservar();
     }
-    public int numeroAsientosDisponiblesPrimerPiso(){
-        int aux = 0;
-        for(int i = 0; i < 16; i++){
-            if(asientosPrimerPiso.get(i).getDisponibilidad() == true){
-                aux = aux + 1;
+
+    /**
+     * Obtiene el número de asientos disponibles en el primer piso del autobús.
+     * @return Número de asientos disponibles.
+     */
+    public int numeroAsientosDisponiblesPrimerPiso() {
+        int contador = 0;
+        for (Asiento asiento : asientosPrimerPiso) {
+            if (asiento.getDisponibilidad()) {
+                contador++;
             }
         }
-        return aux;
+        return contador;
     }
-    public int numeroAsientosDisponiblesSegundoPiso(){
-        int aux = 0;
-        if(asientosSegundoPiso == null){
-            return aux;
+
+    /**
+     * Obtiene el número de asientos disponibles en el segundo piso del autobús.
+     * @return Número de asientos disponibles.
+     */
+    public int numeroAsientosDisponiblesSegundoPiso() {
+        if (asientosSegundoPiso == null) {
+            return 0;
         }
-        for(int i = 0; i < 16; i++){
-            if(asientosSegundoPiso.get(i).getDisponibilidad() == true){
-                aux = aux + 1;
+        int contador = 0;
+        for (Asiento asiento : asientosSegundoPiso) {
+            if (asiento.getDisponibilidad()) {
+                contador++;
             }
         }
-        return aux;
+        return contador;
     }
-    //Getters y setters
-    public LocalTime getHoraSalida(){
+
+    // Getters y setters
+    public LocalTime getHoraSalida() {
         return horaSalida;
     }
-    public String getHoraSalidaFormateada(){
+
+    public String getHoraSalidaFormateada() {
         return horaSalida.format(formatter);
     }
-    public String getCompany(){
+
+    public String getCompany() {
         return company;
     }
-    public String getDestino(){
+
+    public String getDestino() {
         return destino;
     }
-    public String getnPisos(){
+
+    public String getnPisos() {
         return nPisos;
     }
-    public ArrayList<Asiento> getAsientosPrimerPiso(){
+
+    public ArrayList<Asiento> getAsientosPrimerPiso() {
         return asientosPrimerPiso;
     }
-    public ArrayList<Asiento> getAsientosSegundoPiso(){
+
+    public ArrayList<Asiento> getAsientosSegundoPiso() {
         return asientosSegundoPiso;
     }
-    public void setDestino(String destino){
+
+    public void setDestino(String destino) {
         this.destino = destino;
     }
-    public void setnPisos(String nPisos){
+
+    public void setnPisos(String nPisos) {
         this.nPisos = nPisos;
     }
 }
