@@ -18,7 +18,6 @@ public class PanelAutobus extends JPanel implements PanelSeleccionable {
         super();
         this.bus = bus;
         setOpaque(false);
-        this.panelInformacion = panelInformacion;
 
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -90,4 +89,13 @@ public class PanelAutobus extends JPanel implements PanelSeleccionable {
             g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
         }
     }
+    public int getPrecioNormal(){
+        return bus.getPrecioAsientoNormal();
+    }
+    public int getPrecioVIP(){
+        return bus.getPrecioAsientoVIP();
+    }
 }
+
+
+

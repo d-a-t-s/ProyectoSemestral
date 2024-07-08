@@ -44,7 +44,14 @@ public class PanelInformacion extends JPanel {
     public void actualizarInformacion(ArrayList<Asiento> asientosSeleccionados) {
         StringBuilder informacion = new StringBuilder();
         for (Asiento asiento : asientosSeleccionados) {
-            informacion.append(asiento.toString()).append("\n");
+            informacion.append(asiento.toString());
+            // Mostrar precio según si es VIP o no
+            if (asiento.esVIP()) {
+                informacion.append(", Precio=").append(PanelPrincipal.getAutobusSeleccionado().getPrecioAsientoVIP());
+            } else {
+                informacion.append(", Precio=").append(PanelPrincipal.getAutobusSeleccionado().getPrecioAsientoNormal());
+            }
+            informacion.append("\n");
         }
         areaInformacion.setText(informacion.toString());
     }
